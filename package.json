@@ -1,14 +1,14 @@
 {
-  "name": "code-annotation",
-  "displayName": "Code Annotation",
+  "name": "code-operator",
+  "displayName": "Code Operator",
   "description": "Create and track notes on your source code.",
   "icon": "resources/code-annotation.png",
-  "publisher": "tkcandrade",
-  "author": "Thamara Andrade",
-  "homepage": "https://github.com/thamara/vscode-code-annotation#readme",
+  "publisher": "arise-project",
+  "author": "ARISE Project",
+  "homepage": "https://github.com/arise-project/vscode-code-operator",
   "repository": {
     "type": "git",
-    "url": "github:thamara/vscode-code-annotation.git"
+    "url": "github:arise-project/vscode-code-operator.git"
   },
   "version": "0.0.3-dev",
   "engines": {
@@ -251,7 +251,7 @@
       ]
     },
     "configuration": {
-      "title": "Code Annotation",
+      "title": "Code Operator",
       "properties": {
         "code-annotation.showFileName": {
           "type": "boolean",

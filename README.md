@@ -52,3 +52,44 @@ npm run compile
   - `npm install -g vsce`
 - Create the VSIX file
   - `vsce package`
+
+
+------------
+
+settings
+
+ID	Description	Default
+code-annotation.showFileName	Show file name under annotation	true
+code-annotation.showTimeStampForNoteCreation	Show created at timestamp under annotation	false
+code-annotation.showTimeStampForNoteResolution	Show resolved at timestamp under annotation	false
+code-annotation.customTODO	An array of RegExps to use as TODO for note suggestions	
+code-annotation.annotationBG.enableDecoration	Enable color for the background for the annotation on the source code	true
+code-annotation.annotationBG.color.dark	Color for the background for the annotation on the source code in a Dark theme	#FFFFFF13
+code-annotation.annotationBG.color.light	Color for the background for the annotation on the source code in a Light theme	#0000000C
+
+commands
+
+code-annotation.addNote	Add note	Ctrl+Alt+N
+editor/context
+code-annotation.addPlainNote	Add plain note	Ctrl+Alt+P
+code-annotation.clearAllNotes	Clear all notes		
+code-annotation.refreshEntry	Refresh		view/title
+code-annotation.summary	Summary		view/title
+code-annotation.removeNote	Remove note		commandPaletteview/item/context
+code-annotation.checkNote	Check note		commandPaletteview/item/context
+code-annotation.checkAllNotes	Check all notes		view/item/context
+code-annotation.uncheckNote	Uncheck note		commandPaletteview/item/context
+code-annotation.uncheckAllNotes	Uncheck all notes		view/item/context
+code-annotation.removeAllNotes	Remove all notes		view/item/context
+code-annotation.openNote	Open note		commandPaletteview/item/context
+code-annotation.editNote	Edit note		commandPaletteview/item/context
+code-annotation.copyNote	Copy note		commandPaletteview/item/context
+
+view Containers
+codeAnnotation	Code Annotation	activitybar
+
+views
+
+codeAnnotationView	Code Annotation	codeAnnotation
+
+------

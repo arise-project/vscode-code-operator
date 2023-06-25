@@ -130,7 +130,7 @@ const getTODOFromSelectedText = (): string | undefined => {
                 }
             }
         } catch (e) {
-            vscode.window.showErrorMessage(`Error checking custom regex '${custom}': ${e.toString()}`);
+            vscode.window.showErrorMessage(`Error checking custom regex '${custom}'`);
             continue;
         }
     }

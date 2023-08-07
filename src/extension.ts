@@ -10,7 +10,16 @@ import { updateDecorations } from './decoration/decoration';
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extension "code-annotation" is now active!');
 
-    initializeStorageLocation(context.globalStoragePath);
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+
+    if (workspaceFolders && workspaceFolders.length > 0) {
+        const projectRoot = workspaceFolders[0].uri.fsPath;
+        initializeStorageLocation(projectRoot);
+    } else {
+        initializeStorageLocation(context.globalStoragePath);
+    }    
+
+    vscode.window.showInformationMessage('Мой плагин был активирован.');
 
     const tree = new NotesTree();
     const treeActions = new TreeActions(tree);

@@ -198,13 +198,18 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
         if (index >= 0) {
             const note = notes[index];
-            const fileName = note.fileName;
+            let fileName = note.fileName;
             const fileLine = note.fileLine;
 
             if (fileName.length <= 0) {
                 return;
             }
-
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            let fullPath = '';
+            if (workspaceFolders && workspaceFolders.length > 0) {
+                const projectRoot = workspaceFolders[0].uri.fsPath;
+                fileName = path.join(projectRoot, fileName);
+            }
             var openPath = vscode.Uri.file(fileName);
             vscode.workspace.openTextDocument(openPath).then(doc => {
                 vscode.window.showTextDocument(doc).then(editor => {

@@ -3,6 +3,7 @@ import * as fs from 'fs';
 
 import { getAnnotationFilePath, getConfiguration } from './configuration';
 import { setDecorations } from './decoration/decoration';
+import path = require('path');
 
 export interface Position {
     line: number;
@@ -69,7 +70,13 @@ const createNote = (annotationText: string, fromSelection: boolean) => {
 
     const editor = vscode.window.activeTextEditor;
     if (fromSelection && editor) {
-        fileName = editor.document.uri.fsPath;
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+        let relativePath = '';
+        if (workspaceFolders && workspaceFolders.length > 0) {
+            const projectRoot = workspaceFolders[0].uri.fsPath;
+            relativePath = path.relative(projectRoot, editor.document.uri.fsPath);
+        }
+        fileName = relativePath;
         selection = editor.selection;
         if (selection) {
             codeSnippet = editor.document.getText(selection);

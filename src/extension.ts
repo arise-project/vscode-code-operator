@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
         initializeStorageLocation(context.globalStoragePath);
     }    
 
-    vscode.window.showInformationMessage('Мой плагин был активирован.');
+    //vscode.window.showInformationMessage('Мой плагин был активирован.');
 
     const tree = new NotesTree();
     const treeActions = new TreeActions(tree);

@@ -7,6 +7,7 @@ import { NotesTree, TreeActions } from './notes-tree';
 import { initializeStorageLocation, getAnnotationFilePath } from './configuration';
 import { updateDecorations } from './decoration/decoration';
 
+
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extension "code-annotation" is now active!');
 
@@ -15,11 +16,14 @@ export function activate(context: vscode.ExtensionContext) {
     if (workspaceFolders && workspaceFolders.length > 0) {
         const projectRoot = workspaceFolders[0].uri.fsPath;
         initializeStorageLocation(projectRoot);
+
+        
+        //vscode.window.showInformationMessage(`Git User Name is: ${userName()}`);
+
+
     } else {
         initializeStorageLocation(context.globalStoragePath);
     }    
-
-    //vscode.window.showInformationMessage('Мой плагин был активирован.');
 
     const tree = new NotesTree();
     const treeActions = new TreeActions(tree);

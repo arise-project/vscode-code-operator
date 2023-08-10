@@ -313,6 +313,7 @@
     "vscode-test": "^1.4.0"
   },
   "dependencies": {
+    "git-user-name": "^2.0.0",
     "vscode-uri": "^2.1.2"
   }
 }

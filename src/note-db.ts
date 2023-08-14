@@ -1,8 +1,10 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 
-import { getAnnotationFilePath, getConfiguration } from './configuration';
+import { getAnnotationFilePath, getConfiguration, getUserName } from './configuration';
 import { setDecorations } from './decoration/decoration';
+import { v4 as uuidv4 } from 'uuid';
+
 import path = require('path');
 
 export interface Position {
@@ -11,6 +13,7 @@ export interface Position {
 }
 
 export interface Note {
+    userName: string;
     fileName: string;
     fileLine: number;
     positionStart: Position;
@@ -18,14 +21,14 @@ export interface Note {
     text: string;
     codeSnippet: string;
     status: 'pending' | 'done';
-    id: number;
+    id: string;
     createdAt: Date;
     resolvedAt: Date | undefined;
 }
 
 export interface NotesDb {
     notes: Note[];
-    nextId: number;
+    nextId: string;
 }
 
 export const getNotesDb = (): NotesDb => {
@@ -39,8 +42,10 @@ export const getNotes = (): Note[] => {
     return getNotesDb().notes;
 };
 
-export const getNextId = (): number => {
-    return getNotesDb().nextId;
+export const getNextId = (): string => {
+//    return getNotesDb().nextId;
+    const randomUUID: string = uuidv4();
+    return randomUUID;
 };
 
 export const saveDb = (db: NotesDb) => {
@@ -67,6 +72,9 @@ const createNote = (annotationText: string, fromSelection: boolean) => {
     let selection = undefined;
     let positionStart: Position = {line: 0, character: 0};
     let positionEnd: Position = {line: 0, character: 0};
+    let userName = '';
+
+    userName = getUserName();
 
     const editor = vscode.window.activeTextEditor;
     if (fromSelection && editor) {
@@ -85,6 +93,7 @@ const createNote = (annotationText: string, fromSelection: boolean) => {
         }
     }
     const note: Note = {
+        userName: userName,
         fileName: fileName,
         fileLine: selection ? selection.start.line : 0,
         positionStart: positionStart,
@@ -111,7 +120,7 @@ const addNoteToDb = (note: Note) => {
     let db = getNotesDb();
 
     db.notes.push(note);
-    db.nextId++;
+    //db.nextId++;
 
     saveDb(db);
     vscode.window.showInformationMessage('Annotation saved!');

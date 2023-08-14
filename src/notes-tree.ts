@@ -148,7 +148,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
     removeItem(id: string | undefined): void {
         const notes = getNotes();
-        const indexToRemove = notes.findIndex((item: { id: Number }) => {
+        const indexToRemove = notes.findIndex((item: { id: string }) => {
             return item.id.toString() === id;
         });
 
@@ -162,7 +162,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
     checkItem(id: string | undefined, status: 'pending' | 'done'): void {
         const notes = getNotes();
-        const index = notes.findIndex((item: { id: Number }) => {
+        const index = notes.findIndex((item: { id: string }) => {
             return item.id.toString() === id;
         });
 
@@ -177,7 +177,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
     editItem(id: string | undefined): void {
         const notes = getNotes();
-        const index = notes.findIndex((item: { id: Number }) => {
+        const index = notes.findIndex((item: { id: string }) => {
             return item.id.toString() === id;
         });
 
@@ -192,7 +192,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
     openItem(id: string | undefined): void {
         const notes = getNotes();
-        const index = notes.findIndex((item: { id: Number }) => {
+        const index = notes.findIndex((item: { id: string }) => {
             return item.id.toString() === id;
         });
 
@@ -229,7 +229,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
 
     copyItem(id: string | undefined): void {
         const notes = getNotes();
-        const index = notes.findIndex((item: { id: Number }) => {
+        const index = notes.findIndex((item: { id: string }) => {
             return item.id.toString() === id;
         });
 

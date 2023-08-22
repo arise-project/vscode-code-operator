@@ -130,6 +130,34 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
         let countPeding = 0;
         let countDone = 0;
         this.data = [];
+        const pendingNode = new NoteItem('Pending', { context: '$menu-pending'});
+        const doneNode = new NoteItem('Done', { context: '$menu-done'});
+        for (let note of annotations) {
+            const noteItem = createNoteItem(note);
+            const isPending = note.status === 'pending';
+            const parentNode = isPending ? pendingNode : doneNode;
+
+            let userNode = parentNode.children.find(node => node.label === note.userName);
+            if (!userNode) {
+                userNode = new NoteItem(note.userName, { context: '$menu-user' });
+                parentNode.addChild(userNode);
+            }
+
+            userNode.addChild(noteItem);
+
+            if (isPending) {
+                countPeding++;
+            } else {
+                countDone++;
+            }
+        }
+        pendingNode.label += `(${countPeding})`;
+        doneNode.label += `(${countDone})`;
+
+        this.data.push(pendingNode, doneNode);
+
+        
+        /*
         this.data = [new NoteItem('Pending', { context: '$menu-pending' }), new NoteItem('Done', { context: '$menu-done' })];
         for (let note in annotations) {
             const noteItem = createNoteItem(annotations[note]);
@@ -143,7 +171,7 @@ export class NotesTree implements vscode.TreeDataProvider<NoteItem> {
             }
         }
         this.data[0].label += ` (${countPeding})`;
-        this.data[1].label += ` (${countDone})`;
+        this.data[1].label += ` (${countDone})`;*/
     }
 
     removeItem(id: string | undefined): void {

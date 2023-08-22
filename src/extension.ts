@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import { addNote, addPlainNote } from './note-db';
 import { generateMarkdownReport } from './reporting';
 import { NotesTree, TreeActions } from './notes-tree';
-import { initializeStorageLocation, getAnnotationFilePath } from './configuration';
+import { initializeStorageLocation, getAnnotationFilePath, getUserName } from './configuration';
 import { updateDecorations } from './decoration/decoration';
 
 
@@ -17,8 +17,15 @@ export function activate(context: vscode.ExtensionContext) {
         const projectRoot = workspaceFolders[0].uri.fsPath;
         initializeStorageLocation(projectRoot);
     } else {
-        initializeStorageLocation(context.globalStoragePath);
+        return;
+        //initializeStorageLocation(context.globalStoragePath);
     }    
+
+    const userName = getUserName();
+    if (!userName) {
+        vscode.window.showErrorMessage('Git user didn\'t found. Plagin will deactivate.');
+        return;
+    }
 
     const tree = new NotesTree();
     const treeActions = new TreeActions(tree);

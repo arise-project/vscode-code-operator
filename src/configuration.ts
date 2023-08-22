@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 let storageLocation : string = '';
 const annotationFile : string = 'annotations.json';
-const annotationFilePrefix : string = 'operator_';
+export const annotationFilePrefix : string = 'operator_';
 
 export const getUserName = (): string => {
     const userName = require('git-user-name');
@@ -14,6 +14,10 @@ export const getUserName = (): string => {
 export const getFileName = (): string => {
     const userName = require('git-user-name');
     return annotationFilePrefix + userName() + '.json';
+};
+
+export const getStorageLocatiion = (): string => {
+    return storageLocation;
 };
 
 export const getAnnotationFilePath = (): string => {

@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 
-import { getAnnotationFilePath, getConfiguration, getUserName } from './configuration';
+import { annotationFilePrefix, getAnnotationFilePath, getConfiguration, getStorageLocatiion, getUserName } from './configuration';
 import { setDecorations } from './decoration/decoration';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -32,10 +32,24 @@ export interface NotesDb {
 }
 
 export const getNotesDb = (): NotesDb => {
-    const annotationFile = getAnnotationFilePath();
+    /*const annotationFile = getAnnotationFilePath();
     const rawdata = fs.readFileSync(annotationFile, 'utf8');
     let annotations = JSON.parse(rawdata);
-    return annotations;
+    return annotations;*/
+
+    const allNotes: Note[] = [];
+    const userFiles = fs.readdirSync(getStorageLocatiion());
+
+    for (const userFile of userFiles) {
+        if (userFile.startsWith(annotationFilePrefix)) {
+            const filePath = path.join(getStorageLocatiion(), userFile);
+            const rawdata = fs.readFileSync(filePath, 'utf-8');
+            let userNotes = JSON.parse(rawdata);
+            allNotes.push(...userNotes.notes);
+        }
+    }
+    let nextId = getNextId();
+    return { notes: allNotes, nextId };
 };
 
 export const getNotes = (): Note[] => {
@@ -49,7 +63,8 @@ export const getNextId = (): string => {
 };
 
 export const saveDb = (db: NotesDb) => {
-    const data = JSON.stringify(db);
+    const filteredNotes: Note[] = db.notes.filter(note => note.userName === getUserName());
+    const data = JSON.stringify({notes: filteredNotes, nextId: db.nextId});
     fs.writeFileSync(getAnnotationFilePath(), data);
     vscode.commands.executeCommand('code-annotation.refreshEntry');
 };

@@ -10,7 +10,7 @@
     "type": "git",
     "url": "github:arise-project/vscode-code-operator.git"
   },
-  "version": "0.0.3-dev",
+  "version": "0.0.3.0",
   "engines": {
     "vscode": "^1.47.0"
   },

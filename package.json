@@ -3,8 +3,8 @@
   "displayName": "Code Operator",
   "description": "Create and track notes on your source code.",
   "icon": "resources/code-annotation.png",
-  "publisher": "arise-project",
-  "author": "ARISE Project",
+  "publisher": "ArtificialRenaissanceItself",
+  "author": "ArtificialRenaissanceItself",
   "homepage": "https://github.com/arise-project/vscode-code-operator",
   "repository": {
     "type": "git",

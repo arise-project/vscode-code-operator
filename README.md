@@ -1,109 +1,81 @@
-<div align="center">
-  <img src="resources/code-annotation.png" alt="Code Annotation Logo" height="100"> <h1>Code Annotation</h1>
-</div>
+# Code Operator
 
-Create and track annotations from your source code without actually committing comments on your code.
+**Revolutionizing Collaborative Coding with Seamless Annotation Sharing**
 
-![](https://github.com/thamara/vscode-code-annotation/blob/main/demo/Code%20Annotation.png)
+Code Operator is not just an enhancement; it's a transformation of the original 'Code Annotation' Visual Studio Code extension by Thamara Andrade. With Code Operator, collaborative coding reaches new heights. Now, you can effortlessly create, share, and manage annotations directly within your source code, promoting efficient team communication and task management.
 
-The "Code Annotation" can be found in the Activity pane.
+## Enhanced Annotation Sharing
 
-## Features
+Code Operator takes teamwork to the level where members share ideas ower code lines. It allowing team members to share code annotations seamlessly. Annotations are saved directly in your team's Git repository, organized neatly by each team member's name. Experience a streamlined workflow with individual trees in a view, making it easy to understand who annotated what and when.
 
-- Create an annotation from the source code, selecting the portion of code, right-clicking and adding a note
-- Keybinds for creating a new note from selection (`Ctrl/Cmd + alt + n)`, or without selection, aka Plain note (`Ctrl/Cmd + alt + p`)
-- Track annotations on its own pane
-- Check/Uncheck items as you complete them
-- Generate a report in Markdown with a summary of the pending and completed items
+## Key Features
 
-# Feedback and feature requests
+- **Effortless Annotation Creation:** Select a portion of code, right-click, and add a note effortlessly. Or use convenient keyboard shortcuts:
+  - **New Note from Selection:** `Ctrl/Cmd + alt + n`
+  - **Plain Note (Without Selection):** `Ctrl/Cmd + alt + p`
 
-Feel free to open [issues](https://github.com/thamara/vscode-code-annotation/issues) and suggest [new features](https://github.com/thamara/vscode-code-annotation/projects/1) for the extension.
+- **Intuitive Tracking:** Keep track of annotations in dedicated panes. Check and uncheck items, providing clear visibility into your progress.
 
+- **Annotation Storage in Git:** Annotations are saved as JSON files within your team's Git repository, each annotation file organized under the annotator's name. This structured approach ensures easy access and management.
 
-# Installing
+## How Code Operator Enhances Collaboration
 
-You can install the latest version of the extension via the Visual Studio Marketplace [here](https://marketplace.visualstudio.com/items?itemName=tkcandrade.code-annotation).
+Code Operator transforms your collaborative coding experience:
 
-## Using a VSIX file
-Download the [VSIX file](https://github.com/thamara/vscode-code-annotation/blob/master/code-annotation.vsix) and follow the steps on your VSCode:
+- **Efficient Team Communication:** Share annotations effortlessly, fostering effective communication among team members.
 
-1. Go to the "Extensions" pane
-2. Click on the ... on the top right of the "Extensions" pane
-3. Select "Install from VSIX"
-4. Select the VSIX file you downloaded and click install
+- **Clear Accountability:** Easily track annotations, promoting accountability for tasks. Individual trees per team member provide a clear overview of contributions.
 
-# Development
+- **Simplified Management:** Annotations are neatly organized within the team's Git repository, eliminating confusion and ensuring easy access.
 
-- For the development you'll need to use VSCode
-- Install Node/Npm
-- After forking/cloning the repository, run:
-```
-npm install
-npm run compile
-```
-- And to run/test the extension, go the the Run pane and hit the green button on `Run Extension`. This will open a new VSCode window with the extension enabled.
+## Get Involved
 
-## Creating a VSIX file for instalation
+We acknowledge and respect the original author's vision. Operating under the GPL license, Code Operator values the simplicity of its predecessor while introducing powerful features. Your feedback, feature requests, or issues are essential. Please share them on our [GitHub repository](https://github.com/arise-project/vscode-code-operator), as we're committed to making Code Operator the ultimate tool for collaborative coding.
 
-- "Compile" the extension as usual
-  - `npm install`
-- Install vsce
-  - `npm install -g vsce`
-- Create the VSIX file
-  - `vsce package`
+Code Operator, an enhanced version of the original 'Code Annotation' Visual Studio Code extension by Thamara Andrade, revolutionizes your collaborative coding experience. With Code Operator, you can create, share, and manage annotations directly within your source code. Respectful of the original author's vision and licensed under GPL, this extension brings powerful new features while retaining the simplicity of its predecessor.
 
-
-------------
-
-settings
+## Settings
 
 ID	Description	Default
-code-annotation.showFileName	Show file name under annotation	true
-code-annotation.showTimeStampForNoteCreation	Show created at timestamp under annotation	false
-code-annotation.showTimeStampForNoteResolution	Show resolved at timestamp under annotation	false
-code-annotation.customTODO	An array of RegExps to use as TODO for note suggestions	
-code-annotation.annotationBG.enableDecoration	Enable color for the background for the annotation on the source code	true
-code-annotation.annotationBG.color.dark	Color for the background for the annotation on the source code in a Dark theme	#FFFFFF13
-code-annotation.annotationBG.color.light	Color for the background for the annotation on the source code in a Light theme	#0000000C
+code-operator.showFileName	Show file name under annotation	true
+code-operator.showTimeStampForNoteCreation	Show created at timestamp under annotation	false
+code-operator.showTimeStampForNoteResolution	Show resolved at timestamp under annotation	false
+code-operator.customTODO	An array of RegExps to use as TODO for note suggestions	
+code-operator.annotationBG.enableDecoration	Enable color for the background for the annotation on the source code	true
+code-operator.annotationBG.color.dark	Color for the background for the annotation on the source code in a Dark theme	#FFFFFF13
+code-operator.annotationBG.color.light	Color for the background for the annotation on the source code in a Light theme	#0000000C
 
-commands
+## Commands
 
-code-annotation.addNote	Add note	Ctrl+Alt+N
+code-operator.addNote	Add note	Ctrl+Alt+N
 editor/context
-code-annotation.addPlainNote	Add plain note	Ctrl+Alt+P
-code-annotation.clearAllNotes	Clear all notes		
-code-annotation.refreshEntry	Refresh		view/title
-code-annotation.summary	Summary		view/title
-code-annotation.removeNote	Remove note		commandPaletteview/item/context
-code-annotation.checkNote	Check note		commandPaletteview/item/context
-code-annotation.checkAllNotes	Check all notes		view/item/context
-code-annotation.uncheckNote	Uncheck note		commandPaletteview/item/context
-code-annotation.uncheckAllNotes	Uncheck all notes		view/item/context
-code-annotation.removeAllNotes	Remove all notes		view/item/context
-code-annotation.openNote	Open note		commandPaletteview/item/context
-code-annotation.editNote	Edit note		commandPaletteview/item/context
-code-annotation.copyNote	Copy note		commandPaletteview/item/context
+code-operator.addPlainNote	Add plain note	Ctrl+Alt+P
+code-operator.clearAllNotes	Clear all notes		
+code-operator.refreshEntry	Refresh		view/title
+code-operator.summary	Summary		view/title
+code-operator.removeNote	Remove note		commandPaletteview/item/context
+code-operator.checkNote	Check note		commandPaletteview/item/context
+code-operator.checkAllNotes	Check all notes		view/item/context
+code-operator.uncheckNote	Uncheck note		commandPaletteview/item/context
+code-operator.uncheckAllNotes	Uncheck all notes		view/item/context
+code-operator.removeAllNotes	Remove all notes		view/item/context
+code-operator.openNote	Open note		commandPaletteview/item/context
+code-operator.editNote	Edit note		commandPaletteview/item/context
+code-operator.copyNote	Copy note		commandPaletteview/item/context
 
-view Containers
+## View Containers
+
 codeAnnotation	Code Annotation	activitybar
 
-views
+## Views
 
 codeAnnotationView	Code Annotation	codeAnnotation
 
-------
+## Troubleshouting
 
-Troubleshouting
-
----
 node_modules/@types/vscode/index.d.ts:16386:76 - error TS1005: ',' expected.
-
 16386  export interface TestItemCollection extends Iterable<[id: string, testItem: TestItem]> {
-                 
+---                 
 FIX
-
 npm uninstall typescript
 npm install typescript --save-dev
-
----

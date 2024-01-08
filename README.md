@@ -36,14 +36,14 @@ Code Operator, an enhanced version of the original 'Code Annotation' Visual Stud
 
 ## Settings
 
-ID	Description	Default
-code-operator.showFileName	Show file name under annotation	true
-code-operator.showTimeStampForNoteCreation	Show created at timestamp under annotation	false
-code-operator.showTimeStampForNoteResolution	Show resolved at timestamp under annotation	false
-code-operator.customTODO	An array of RegExps to use as TODO for note suggestions	
-code-operator.annotationBG.enableDecoration	Enable color for the background for the annotation on the source code	true
-code-operator.annotationBG.color.dark	Color for the background for the annotation on the source code in a Dark theme	#FFFFFF13
-code-operator.annotationBG.color.light	Color for the background for the annotation on the source code in a Light theme	#0000000C
+ID	Description	Default\
+code-operator.showFileName	Show file name under annotation	true\
+code-operator.showTimeStampForNoteCreation	Show created at timestamp under annotation	false\
+code-operator.showTimeStampForNoteResolution	Show resolved at timestamp under annotation	false\
+code-operator.customTODO	An array of RegExps to use as TODO for note suggestions\
+code-operator.annotationBG.enableDecoration	Enable color for the background for the annotation on the source code	true\
+code-operator.annotationBG.color.dark	Color for the background for the annotation on the source code in a Dark theme	#FFFFFF13\
+code-operator.annotationBG.color.light	Color for the background for the annotation on the source code in a Light theme	#0000000C\
 
 ## Commands
 

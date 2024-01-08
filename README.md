@@ -47,21 +47,21 @@ code-operator.annotationBG.color.light	Color for the background for the annotati
 
 ## Commands
 
-code-operator.addNote	Add note	Ctrl+Alt+N
-editor/context
-code-operator.addPlainNote	Add plain note	Ctrl+Alt+P
-code-operator.clearAllNotes	Clear all notes		
-code-operator.refreshEntry	Refresh		view/title
-code-operator.summary	Summary		view/title
-code-operator.removeNote	Remove note		commandPaletteview/item/context
-code-operator.checkNote	Check note		commandPaletteview/item/context
-code-operator.checkAllNotes	Check all notes		view/item/context
-code-operator.uncheckNote	Uncheck note		commandPaletteview/item/context
-code-operator.uncheckAllNotes	Uncheck all notes		view/item/context
-code-operator.removeAllNotes	Remove all notes		view/item/context
-code-operator.openNote	Open note		commandPaletteview/item/context
-code-operator.editNote	Edit note		commandPaletteview/item/context
-code-operator.copyNote	Copy note		commandPaletteview/item/context
+code-operator.addNote	Add note	Ctrl+Alt+N\
+editor/context\
+code-operator.addPlainNote	Add plain note	Ctrl+Alt+P\
+code-operator.clearAllNotes	Clear all notes\
+code-operator.refreshEntry	Refresh		view/title\
+code-operator.summary	Summary		view/title\
+code-operator.removeNote	Remove note		commandPaletteview/item/context\
+code-operator.checkNote	Check note		commandPaletteview/item/context\
+code-operator.checkAllNotes	Check all notes		view/item/context\
+code-operator.uncheckNote	Uncheck note		commandPaletteview/item/context\
+code-operator.uncheckAllNotes	Uncheck all notes		view/item/context\
+code-operator.removeAllNotes	Remove all notes		view/item/context\
+code-operator.openNote	Open note		commandPaletteview/item/context\
+code-operator.editNote	Edit note		commandPaletteview/item/context\
+code-operator.copyNote	Copy note		commandPaletteview/item/context\
 
 ## View Containers
 
@@ -73,10 +73,10 @@ codeAnnotationView	Code Annotation	codeAnnotation
 
 ## Troubleshouting
 
-node_modules/@types/vscode/index.d.ts:16386:76 - error TS1005: ',' expected.
-16386  export interface TestItemCollection extends Iterable<[id: string, testItem: TestItem]> {
+node_modules/@types/vscode/index.d.ts:16386:76 - error TS1005: ',' expected.\
+16386  export interface TestItemCollection extends Iterable<[id: string, testItem: TestItem]> {\
 
 FIX
 
-npm uninstall typescript
-npm install typescript --save-dev
+npm uninstall typescript\
+npm install typescript --save-dev\

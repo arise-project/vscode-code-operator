@@ -75,6 +75,8 @@ codeAnnotationView	Code Annotation	codeAnnotation
 
 node_modules/@types/vscode/index.d.ts:16386:76 - error TS1005: ',' expected.
 16386  export interface TestItemCollection extends Iterable<[id: string, testItem: TestItem]> {
+
 FIX
+
 npm uninstall typescript
 npm install typescript --save-dev
